@@ -31,7 +31,8 @@ class RedMineAnalysis:
         self.all_issues = self.getAllIssues()
         for item in self.all_issues:
             try:
-                key = str(item.start_date)
+                key = str(item.created_on)
+                print(key)
                 if key in self.date_dict:
                     value = self.date_dict[key]
                     self.date_dict[key] = value + 1
@@ -39,9 +40,13 @@ class RedMineAnalysis:
                     self.date_dict[key] = 0
             except Exception as e:
                 print(e)
+        last_value = 0
+        for k in self.date_dict.keys():
+            self.date_dict[k] = self.date_dict[k] + last_value
+            last_value = self.date_dict[k]
         return self.date_dict
 
-test = RedMineAnalysis('https://dev.seer-group.com', "darboy", "3.14159265758ch")
+test = RedMineAnalysis('https://xxm', "xxx", "3.xxxx")
 dict_result = test.sumIssuesNumByDate()
 print(dict_result)
 
