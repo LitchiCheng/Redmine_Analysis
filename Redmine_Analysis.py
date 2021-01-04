@@ -1,11 +1,4 @@
 from redminelib import Redmine
-# redmine = Redmine('https://dev.seer-group.com', username='darboy', password='3.14159265758ch')
-# # print(len(redmine.issue.all()))
-# all_issue = redmine.issue.all()
-# print((str(all_issue[1978].start_date)))
-
-
-
 import arrow
 
 def isLeapYear(years):
